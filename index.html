@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="todo">
+<head>
+	<title>To-Do List Angular</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+<body>
+	<div ng-controller="TodoCtrl">
+		<form>
+			<label >Task:</label>
+			<input type="text" ng-model="item.task"/>
+
+			<label >Priority:</label>
+			<select ng-model="item.priority" ng-options="p.text for p in priorities"></select>
+
+			<button ng-click="add_item()" class="btn btn-default">Save</button>
+
+			<hr/>
+			[ <a href="" ng-click="testSort='priority.number'; check=!check">Sorted</a> ]
+			[ <a href="" ng-click="testSort=''; check=!check">Unsorted</a> ]
+
+			<table class="table table-hover">
+ 				 <thead>
+				    <tr>
+				      <th>Task</th>
+				      <th>Priority</th>
+				    </tr>
+				  </thead>
+				  <tbody ng-repeat="aTask in allTasks | orderBy: testSort:check">
+				    <tr>
+				      <td>{{aTask.task}}</td>
+				      <td class="{{aTask.priority.text}}">{{aTask.priority.text}}</td>
+				    </tr>
+				  </tbody>
+				</table>
+
+		</form>
+	</div>	
+
+	<style type="text/css">
+		.Heigh{
+			color: red;
+		}
+
+		.Medium{
+			color:green;
+		}
+
+		.Low{
+			color: blue;
+		}
+
+		body:{
+			magin: 30%
+		}
+
+	</style>
+
+	<script src="bootstrap/js/jquery.js"></script>
+	<script src="/bootstrapjs/bootstrap.min.js"></script>
+	<script src="ng/angular.min.js"></script>
+	<script src="simpleController.js"></script>
+</body>
+</html>

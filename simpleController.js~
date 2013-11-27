@@ -1,0 +1,15 @@
+angular.module('todo', []);
+
+	var Todo = angular.module('todo');
+	Todo.controller('TodoCtrl', ['$scope', function($scope) {
+		console.log('Pass')
+
+		$scope.allTasks = [];
+
+		$scope.taskObj = {};
+
+		$scope.add_item = function() {
+			$scope.allTasks.push($scope.taskObj);
+			$scope.taskObj = {};
+		};
+	}]);

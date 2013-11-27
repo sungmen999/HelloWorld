@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="todo">
+<head>
+	<title>To-Do List Angular</title>
+</head>
+<body>
+	<div ng-controller="TodoCtrl">
+		<form>
+			<label>Task:</label>
+			<input type="text" ng-model="taskObj.task"/>
+			<button ng-click="add_item()">Save</button>
+
+			<hr/>
+			<table>
+				<thead>
+					<tr>
+						<th>Task<th>
+						<th>Priority<th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td ng-repeat="aTask in allTasks">{{aTask.task}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>	
+
+	<script src="ng/angular.min.js"></script>
+	<script src="simpleController.js"></script>
+</body>
+</html>
